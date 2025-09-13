@@ -1,4 +1,4 @@
-{% extends 'lab/index.html.j2' %}
+{% extends 'html/index.html.j2' %}
 
 {% block header %}
 <head>
