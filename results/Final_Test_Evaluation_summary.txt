@@ -1,0 +1,33 @@
+Model: "sequential_4"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ conv2d_5 (Conv2D)           (None, 28, 28, 32)        896       
+                                                                 
+ batch_normalization_1 (Batc  (None, 28, 28, 32)       128       
+ hNormalization)                                                 
+                                                                 
+ max_pooling2d_5 (MaxPooling  (None, 14, 14, 32)       0         
+ 2D)                                                             
+                                                                 
+ conv2d_6 (Conv2D)           (None, 12, 12, 64)        18496     
+                                                                 
+ batch_normalization_2 (Batc  (None, 12, 12, 64)       256       
+ hNormalization)                                                 
+                                                                 
+ max_pooling2d_6 (MaxPooling  (None, 6, 6, 64)         0         
+ 2D)                                                             
+                                                                 
+ flatten_4 (Flatten)         (None, 2304)              0         
+                                                                 
+ dense_8 (Dense)             (None, 128)               295040    
+                                                                 
+ dropout_4 (Dropout)         (None, 128)               0         
+                                                                 
+ dense_9 (Dense)             (None, 43)                5547      
+                                                                 
+=================================================================
+Total params: 320,363
+Trainable params: 320,171
+Non-trainable params: 192
+_________________________________________________________________
