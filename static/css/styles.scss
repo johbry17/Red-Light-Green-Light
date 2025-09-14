@@ -8,9 +8,26 @@ $black: #212529;
 $white: #ffffff;
 $border-color: #1d5d5c;
 
+.notebook-container {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 16px;
+}
+
 // General styles
 body {
   padding-top: 70px !important;
+}
+
+body.jp-Notebook {
+  padding-top: 0 !important;
+}
+
+main {
+  padding: 2rem;
+  margin: auto;
+  max-width: 900px;
 }
 
 h1 {
@@ -43,41 +60,15 @@ header img {
   height: auto;
   display: block;
   text-align: center;
-}
-
-// classification report header
-.classification {
-  @extend .jp-MarkdownCell;
-  text-align: center;
-  font-size: 1.4em;
-  font-weight: bold;
-  // text-decoration: underline;
-  color: $black;
-  // margin: 24px auto 24px auto;
-  // padding: 16px 0;
-  padding: 0 !important;
-}
-
-// misclassification summary and details
-.misclass-summary {
-  @extend .jp-MarkdownCell;
-  text-align: left;
-  font-size: 1.1em;
-  font-weight: bold;
-  color: $black;
-  margin: 0 auto !important;
-  padding: 0 32px !important;
-  width: 95%;
   max-width: 900px;
 }
-.misclass-detail {
-  @extend .jp-MarkdownCell;
-  text-align: left;
-  font-size: 1em;
-  color: $black;
-  margin: 0 auto !important;
-  padding: 0 24px !important;
-  font-weight: normal;
+
+header img,
+.project-banner {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
 // Project banner styles
@@ -178,6 +169,8 @@ header img {
   margin: 0 auto;
   transition: color 0.3s ease;
   background: linear-gradient(90deg, #198754 50%, #157347 100%);
+  font-size: 2em;
+  font-weight: bold;
 
   &:hover {
     color: $yellow;
@@ -193,11 +186,24 @@ header img {
       transition: color 0.3s ease;
     }
   }
+  .subtitle {
+    display: block;
+    font-size: 0.9em;
+    font-weight: 400;
+    margin-top: 0.2em;
+    color: #f7f7f7;
+    letter-spacing: 0.5px;
+  }
 }
 // Hide GTSRB text on mobile for Image Key page
 @media (max-width: 600px) {
   .hide-mobile {
     display: none;
+  }
+  #title {
+    width: 85%;
+    font-size: 1.6em;
+    padding: 8px;
   }
 }
 
@@ -340,6 +346,42 @@ table caption {
   padding-bottom: 0.5em;
 }
 
+// Classification report header
+.classification {
+  @extend .jp-MarkdownCell;
+  text-align: center;
+  font-size: 1.4em;
+  font-weight: bold;
+  // text-decoration: underline;
+  color: $black;
+  // margin: 24px auto 24px auto;
+  // padding: 16px 0;
+  padding: 0 !important;
+}
+
+// Misclassification summary and details
+.misclass-summary {
+  @extend .jp-MarkdownCell;
+  text-align: left;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: $black;
+  margin: 0 auto !important;
+  padding: 0 32px !important;
+  width: 95%;
+  max-width: 900px;
+}
+.misclass-detail {
+  @extend .jp-MarkdownCell;
+  text-align: left;
+  font-size: 1em;
+  color: $black;
+  margin: 0 auto !important;
+  padding: 0 24px !important;
+  font-weight: normal;
+}
+
+// Image Key Page
 // Image Key Text
 .image-blurb {
   font-family: Arial, sans-serif;
@@ -348,7 +390,6 @@ table caption {
   max-width: 800px;
   margin: 0.5rem auto 2rem;
 }
-
 // Image Key Grid
 .atlas {
   display: grid;
@@ -372,7 +413,6 @@ table caption {
 .card span {
   font-size: 0.85rem;
 }
-
 // Image Key Sign Gallery
 .sign-gallery {
   display: flex;

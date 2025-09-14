@@ -19,13 +19,13 @@
     />
     <link rel="stylesheet" href="../static/css/styles.css" />
     <link rel="icon" href="../static/images/favicon.ico" type="image/ico" />
-    <style>
+    <!-- <style>
       main {
         padding: 2rem;
         max-width: 1200px;
         margin: auto;
       }
-    </style>
+    </style> -->
   </head>
   <body>
     <!-- Navigation-->
@@ -69,121 +69,135 @@
         </div>
       </div>
     </nav>
+    <div class="notebook-container">
+      <header>
+        <img src="../static/images/GTSRB_banner.png" alt="GTSRB Banner" />
+      </header>
 
-    <header>
-      <img src="../static/images/GTSRB_banner.png" alt="GTSRB Banner" />
-    </header>
+      <main>
+        <!-- <h3 id="title"><span class="hide-mobile">GTSRB </span>Image Key</h3> -->
+        <h3 id="title">GTSRB Visual Key</h3>
 
-    <main>
-      <h2 id="title"><span class="hide-mobile">GTSRB </span>Image Key</h2>
-      <p class="image-blurb">
-        This atlas shows the 43 traffic sign classes from the German Traffic
-        Sign Recognition Benchmark (GTSRB). Each class ID is paired with its
-        label, and the composite image below provides the visual reference for
-        all signs.
-      </p>
+        <p class="image-blurb">
+          This atlas shows the 43 traffic sign classes from the German Traffic
+          Sign Recognition Benchmark (GTSRB). Each class ID is paired with its
+          label, and the composite image below provides the visual reference for
+          all signs.
+        </p>
 
-      <div class="sign-gallery">
-        <img
-          src="../static/images/GTSRB_0-Indexed.png"
-          alt="GTSRB 0-Indexed Classes"
-        />
-      </div>
+        <div class="sign-gallery">
+          <img
+            src="../static/images/GTSRB_0-Indexed.png"
+            alt="GTSRB 0-Indexed Classes"
+          />
+        </div>
 
-      <section class="atlas">
-        <div class="card">
-          <strong>0</strong><span>Speed limit (20km/h)</span>
-        </div>
-        <div class="card">
-          <strong>1</strong><span>Speed limit (30km/h)</span>
-        </div>
-        <div class="card">
-          <strong>2</strong><span>Speed limit (50km/h)</span>
-        </div>
-        <div class="card">
-          <strong>3</strong><span>Speed limit (60km/h)</span>
-        </div>
-        <div class="card">
-          <strong>4</strong><span>Speed limit (70km/h)</span>
-        </div>
-        <div class="card">
-          <strong>5</strong><span>Speed limit (80km/h)</span>
-        </div>
-        <div class="card">
-          <strong>6</strong><span>End of speed limit (80km/h)</span>
-        </div>
-        <div class="card">
-          <strong>7</strong><span>Speed limit (100km/h)</span>
-        </div>
-        <div class="card">
-          <strong>8</strong><span>Speed limit (120km/h)</span>
-        </div>
-        <div class="card"><strong>9</strong><span>No passing</span></div>
-        <div class="card">
-          <strong>10</strong><span>No passing for vehicles &gt; 3.5t</span>
-        </div>
-        <div class="card">
-          <strong>11</strong><span>Right-of-way at next intersection</span>
-        </div>
-        <div class="card"><strong>12</strong><span>Priority road</span></div>
-        <div class="card"><strong>13</strong><span>Yield</span></div>
-        <div class="card"><strong>14</strong><span>Stop</span></div>
-        <div class="card"><strong>15</strong><span>No vehicles</span></div>
-        <div class="card">
-          <strong>16</strong><span>Vehicles &gt; 3.5t prohibited</span>
-        </div>
-        <div class="card"><strong>17</strong><span>No entry</span></div>
-        <div class="card"><strong>18</strong><span>General caution</span></div>
-        <div class="card">
-          <strong>19</strong><span>Dangerous curve left</span>
-        </div>
-        <div class="card">
-          <strong>20</strong><span>Dangerous curve right</span>
-        </div>
-        <div class="card"><strong>21</strong><span>Double curve</span></div>
-        <div class="card"><strong>22</strong><span>Bumpy road</span></div>
-        <div class="card"><strong>23</strong><span>Slippery road</span></div>
-        <div class="card">
-          <strong>24</strong><span>Road narrows right</span>
-        </div>
-        <div class="card"><strong>25</strong><span>Road work</span></div>
-        <div class="card"><strong>26</strong><span>Traffic signals</span></div>
-        <div class="card"><strong>27</strong><span>Pedestrians</span></div>
-        <div class="card">
-          <strong>28</strong><span>Children crossing</span>
-        </div>
-        <div class="card">
-          <strong>29</strong><span>Bicycles crossing</span>
-        </div>
-        <div class="card">
-          <strong>30</strong><span>Beware of ice/snow</span>
-        </div>
-        <div class="card">
-          <strong>31</strong><span>Wild animals crossing</span>
-        </div>
-        <div class="card">
-          <strong>32</strong><span>End of all speed &amp; passing limits</span>
-        </div>
-        <div class="card"><strong>33</strong><span>Turn right ahead</span></div>
-        <div class="card"><strong>34</strong><span>Turn left ahead</span></div>
-        <div class="card"><strong>35</strong><span>Ahead only</span></div>
-        <div class="card">
-          <strong>36</strong><span>Straight or right</span>
-        </div>
-        <div class="card"><strong>37</strong><span>Straight or left</span></div>
-        <div class="card"><strong>38</strong><span>Keep right</span></div>
-        <div class="card"><strong>39</strong><span>Keep left</span></div>
-        <div class="card">
-          <strong>40</strong><span>Roundabout mandatory</span>
-        </div>
-        <div class="card">
-          <strong>41</strong><span>End of no passing</span>
-        </div>
-        <div class="card">
-          <strong>42</strong><span>End of no passing (&gt; 3.5t)</span>
-        </div>
-      </section>
-    </main>
+        <section class="atlas">
+          <div class="card">
+            <strong>0</strong><span>Speed limit (20km/h)</span>
+          </div>
+          <div class="card">
+            <strong>1</strong><span>Speed limit (30km/h)</span>
+          </div>
+          <div class="card">
+            <strong>2</strong><span>Speed limit (50km/h)</span>
+          </div>
+          <div class="card">
+            <strong>3</strong><span>Speed limit (60km/h)</span>
+          </div>
+          <div class="card">
+            <strong>4</strong><span>Speed limit (70km/h)</span>
+          </div>
+          <div class="card">
+            <strong>5</strong><span>Speed limit (80km/h)</span>
+          </div>
+          <div class="card">
+            <strong>6</strong><span>End of speed limit (80km/h)</span>
+          </div>
+          <div class="card">
+            <strong>7</strong><span>Speed limit (100km/h)</span>
+          </div>
+          <div class="card">
+            <strong>8</strong><span>Speed limit (120km/h)</span>
+          </div>
+          <div class="card"><strong>9</strong><span>No passing</span></div>
+          <div class="card">
+            <strong>10</strong><span>No passing for vehicles &gt; 3.5t</span>
+          </div>
+          <div class="card">
+            <strong>11</strong><span>Right-of-way at next intersection</span>
+          </div>
+          <div class="card"><strong>12</strong><span>Priority road</span></div>
+          <div class="card"><strong>13</strong><span>Yield</span></div>
+          <div class="card"><strong>14</strong><span>Stop</span></div>
+          <div class="card"><strong>15</strong><span>No vehicles</span></div>
+          <div class="card">
+            <strong>16</strong><span>Vehicles &gt; 3.5t prohibited</span>
+          </div>
+          <div class="card"><strong>17</strong><span>No entry</span></div>
+          <div class="card">
+            <strong>18</strong><span>General caution</span>
+          </div>
+          <div class="card">
+            <strong>19</strong><span>Dangerous curve left</span>
+          </div>
+          <div class="card">
+            <strong>20</strong><span>Dangerous curve right</span>
+          </div>
+          <div class="card"><strong>21</strong><span>Double curve</span></div>
+          <div class="card"><strong>22</strong><span>Bumpy road</span></div>
+          <div class="card"><strong>23</strong><span>Slippery road</span></div>
+          <div class="card">
+            <strong>24</strong><span>Road narrows right</span>
+          </div>
+          <div class="card"><strong>25</strong><span>Road work</span></div>
+          <div class="card">
+            <strong>26</strong><span>Traffic signals</span>
+          </div>
+          <div class="card"><strong>27</strong><span>Pedestrians</span></div>
+          <div class="card">
+            <strong>28</strong><span>Children crossing</span>
+          </div>
+          <div class="card">
+            <strong>29</strong><span>Bicycles crossing</span>
+          </div>
+          <div class="card">
+            <strong>30</strong><span>Beware of ice/snow</span>
+          </div>
+          <div class="card">
+            <strong>31</strong><span>Wild animals crossing</span>
+          </div>
+          <div class="card">
+            <strong>32</strong
+            ><span>End of all speed &amp; passing limits</span>
+          </div>
+          <div class="card">
+            <strong>33</strong><span>Turn right ahead</span>
+          </div>
+          <div class="card">
+            <strong>34</strong><span>Turn left ahead</span>
+          </div>
+          <div class="card"><strong>35</strong><span>Ahead only</span></div>
+          <div class="card">
+            <strong>36</strong><span>Straight or right</span>
+          </div>
+          <div class="card">
+            <strong>37</strong><span>Straight or left</span>
+          </div>
+          <div class="card"><strong>38</strong><span>Keep right</span></div>
+          <div class="card"><strong>39</strong><span>Keep left</span></div>
+          <div class="card">
+            <strong>40</strong><span>Roundabout mandatory</span>
+          </div>
+          <div class="card">
+            <strong>41</strong><span>End of no passing</span>
+          </div>
+          <div class="card">
+            <strong>42</strong><span>End of no passing (&gt; 3.5t)</span>
+          </div>
+        </section>
+      </main>
+    </div>
   </body>
 
   <!-- Footer -->

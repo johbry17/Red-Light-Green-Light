@@ -1,5 +1,22 @@
+.notebook-container {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 16px;
+}
+
 body {
   padding-top: 70px !important;
+}
+
+body.jp-Notebook {
+  padding-top: 0 !important;
+}
+
+main {
+  padding: 2rem;
+  margin: auto;
+  max-width: 900px;
 }
 
 h1 {
@@ -30,34 +47,15 @@ header img {
   height: auto;
   display: block;
   text-align: center;
-}
-
-.classification {
-  text-align: center;
-  font-size: 1.4em;
-  font-weight: bold;
-  color: #212529;
-  padding: 0 !important;
-}
-
-.misclass-summary {
-  text-align: left;
-  font-size: 1.1em;
-  font-weight: bold;
-  color: #212529;
-  margin: 0 auto !important;
-  padding: 0 32px !important;
-  width: 95%;
   max-width: 900px;
 }
 
-.misclass-detail {
-  text-align: left;
-  font-size: 1em;
-  color: #212529;
-  margin: 0 auto !important;
-  padding: 0 24px !important;
-  font-weight: normal;
+header img,
+.project-banner {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
 .project-banner {
@@ -147,6 +145,8 @@ header img {
   margin: 0 auto;
   transition: color 0.3s ease;
   background: linear-gradient(90deg, #198754 50%, #157347 100%);
+  font-size: 2em;
+  font-weight: bold;
 }
 #title:hover {
   color: #e9c46a;
@@ -160,10 +160,23 @@ header img {
   color: #e9c46a;
   transition: color 0.3s ease;
 }
+#title .subtitle {
+  display: block;
+  font-size: 0.9em;
+  font-weight: 400;
+  margin-top: 0.2em;
+  color: #f7f7f7;
+  letter-spacing: 0.5px;
+}
 
 @media (max-width: 600px) {
   .hide-mobile {
     display: none;
+  }
+  #title {
+    width: 85%;
+    font-size: 1.6em;
+    padding: 8px;
   }
 }
 .output_png,
@@ -182,7 +195,7 @@ header img {
   justify-content: center;
 }
 
-.jp-MarkdownCell, .classification, .misclass-summary, .misclass-detail {
+.jp-MarkdownCell, .misclass-detail, .misclass-summary, .classification {
   background: none !important;
   border-radius: 0 !important;
   box-shadow: none !important;
@@ -259,6 +272,34 @@ table caption {
   font-weight: bold;
   font-size: 1.1em;
   padding-bottom: 0.5em;
+}
+
+.classification {
+  text-align: center;
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #212529;
+  padding: 0 !important;
+}
+
+.misclass-summary {
+  text-align: left;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #212529;
+  margin: 0 auto !important;
+  padding: 0 32px !important;
+  width: 95%;
+  max-width: 900px;
+}
+
+.misclass-detail {
+  text-align: left;
+  font-size: 1em;
+  color: #212529;
+  margin: 0 auto !important;
+  padding: 0 24px !important;
+  font-weight: normal;
 }
 
 .image-blurb {

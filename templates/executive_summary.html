@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Image Key for a deep learning project for traffic sign classification using convolutional neural networks and TensorFlow on the GTSRB dataset."
+    />
+    <meta name="author" content="Bryan C. Johns" />
+    <title>Reference: GTSRB Image Key</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../static/css/styles.css" />
+    <link rel="icon" href="../static/images/favicon.ico" type="image/ico" />
+    <style>
+      main {
+        padding: 2rem;
+        max-width: 1200px;
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container px-4 px-lg-5">
+        <!-- <a class="navbar-brand" href="executive_summary.html">Home</a> -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarResponsive"
+          aria-controls="navbarResponsive"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ms-auto py-4 py-lg-0">
+            <!-- <li class="nav-item">
+              <a
+                class="nav-link px-lg-3 py-3 py-lg-4"
+                href="executive_summary.html"
+                >Executive Summary</a
+              >
+            </li> -->
+            <li class="nav-item">
+              <a
+                class="nav-link px-lg-3 py-3 py-lg-4"
+                href="model_analysis.html"
+                >GTSRB Model Analysis</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-lg-3 py-3 py-lg-4" href="image_key.html"
+                >Reference: GTSRB Image Key</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="notebook-container">
+      <header>
+        <img src="../static/images/GTSRB_banner.png" alt="GTSRB Banner" />
+      </header>
+
+      <main>
+        <div class="project-banner">
+          <span class="project-banner-main">
+            <span class="red-light">Red Light</span>
+            <span class="green-light">Green Light</span>
+          </span>
+          <span class="project-banner-sub"
+            >Decoding Traffic Signs with Computer Vision</span
+          >
+        </div>
+
+        <h4 class="image-blurb">
+          What happens when you hand a neural net a stack of German road signs
+          and say, “Figure it out”? This project is the answer.
+        </h4>
+
+        <div id="title">
+          Executive Summary
+          <span class="subtitle hide-mobile"
+            >Convolutional Neural Networks Hit the Road</span
+          >
+        </div>
+      </main>
+    </div>
+  </body>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <span class="footer-owner">
+      &copy; <span id="copyright-year">2025</span>
+      <span class="footer-author">Bryan C. Johns</span>
+    </span>
+    <span class="footer-links">
+      <a
+        href="https://johbry17.github.io/portfolio/index.html"
+        target="_blank"
+        class="portfolio-link"
+        aria-label="Portfolio"
+      >
+        <i
+          class="fas fa-laptop-code footer-icon"
+          aria-hidden="true"
+          title="Portfolio"
+        ></i
+        >Portfolio
+      </a>
+      <a
+        href="https://www.linkedin.com/in/b-johns/"
+        target="_blank"
+        class="linkedin-link"
+        aria-label="LinkedIn"
+      >
+        <i
+          class="fab fa-linkedin footer-icon"
+          aria-hidden="true"
+          title="LinkedIn"
+        ></i
+        >LinkedIn
+      </a>
+      <a
+        href="https://github.com/johbry17/Red-Light-Green-Light"
+        target="_blank"
+        class="github-link"
+        aria-label="GitHub"
+      >
+        <i
+          class="fab fa-github footer-icon"
+          aria-hidden="true"
+          title="GitHub"
+        ></i
+        >GitHub
+      </a>
+    </span>
+  </footer>
+  <script>
+    // Auto-update year
+    const yearElement = document.getElementById("copyright-year");
+    if (yearElement) {
+      yearElement.textContent = new Date().getFullYear();
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../static/js/scripts.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      insertCircleSeparator(".circle-separator-anchor");
+    });
+  </script>
+</html>
