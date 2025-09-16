@@ -87,8 +87,8 @@
         </div>
 
         <h4 class="image-blurb">
-          Wherein I hand a neural net a stack of German road signs
-          and say, “Figure it out”?
+          Wherein I hand a neural net a stack of German road signs and say,
+          “Figure it out”?
         </h4>
 
         <div id="title">
@@ -97,6 +97,389 @@
             >Convolutional Neural Networks Hit the Road</span
           >
         </div>
+
+        <br /><br />
+
+        <h2><b>How well can a compact neural network ‘read’ the road?</b></h2>
+        <br />
+        <p>
+          Traffic signs are small, standardized, and mission-critical — yet
+          teaching machines to read them under glare, blur, or rain is
+          surprisingly hard.
+        </p>
+        <p>
+          I set out to test the limits of machine vision on the
+          <a
+            href="https://benchmark.ini.rub.de/gtsrb_dataset.html"
+            target="_blank"
+            >German Traffic Sign Recognition Benchmark (GTSRB)</a
+          >. With a handful of compact CNNs, I pushed a simple model past
+          <strong>99% accuracy</strong> on held-out data.
+        </p>
+
+        <br />
+
+        <h3>Why It Matters</h3>
+        <p>
+          Computer vision is the art of teaching machines to <i>see</i>. It’s
+          already everywhere: unlocking your phone with face ID, spotting tumors
+          in scans, scanning QR codes at restaurants, monitoring crops with
+          drones, digitizing paperwork, even — perhaps most importantly —
+          counting how many times your dog photobombs your Zoom calls.
+        </p>
+        <p>
+          This project zoomed in on traffic signs — a classic benchmark in image
+          recognition with real-world consequences. Modern cars bristle with
+          sensors, but even the best driver can miss a sign in heavy rain or at
+          night. What if your car <i>never</i> did?
+        </p>
+        <p>The use cases are multiplying fast:</p>
+        <ul>
+          <li>
+            <strong>Drivers:</strong> AR windshields that highlight speed limits
+            and warnings, or audio cues for visually impaired drivers.
+          </li>
+          <li>
+            <strong>Cities &amp; maps:</strong> Dashcams or street-view cars
+            automatically updating digital maps and flagging damaged or missing
+            signs to speed up road maintenance and repairs.
+          </li>
+          <li>
+            <strong>Industries:</strong> Delivery fleets checking driver
+            compliance, insurers reconstructing accidents, rental cars
+            translating foreign signs for tourists.
+          </li>
+          <li>
+            <strong>Policy:</strong> Since July 2022, all new cars in the EU
+            must include <i>Intelligent Speed Assistance (ISA)</i>, which uses
+            camera-based sign recognition.
+          </li>
+        </ul>
+        <p>
+          And all this is just the prelude to self-driving cars—if they ever
+          truly arrive.
+        </p>
+
+        <br />
+
+        <h3>The Challenge</h3>
+        <img
+          src="../static/images/class_distribution.png"
+          alt="Class Distribution Plot"
+          class="img-fluid"
+        />
+        <p class="caption">
+          <em
+            >Some classes are 10× more common than others—just like real
+            life.</em
+          >
+        </p>
+        <p>
+          Traffic signs appear in dozens of varieties. Some are everywhere, like
+          “speed limit 50 km/h.” Others are vanishingly rare. Many look nearly
+          identical (especially speed limits), and all must be recognized under
+          wildly different conditions: glare, snow, odd camera angles, partial
+          blockage, or even graffiti. It’s like asking a human to tell identical
+          twins apart in a rainstorm.
+        </p>
+        <p>
+          A model that succeeds here must be as resilient as the human eye — or
+          better.
+        </p>
+        <img
+          src="../static/images/GTSRB_representatives.png"
+          alt="Real examples from the GTSRB dataset"
+          class="img-fluid"
+        />
+        <p class="caption">
+          <em
+            >Every image is an actual example from the GTSRB, representing each
+            class in order and photographed under diverse conditions.
+          </em>
+        </p>
+
+        <br />
+
+        <h3>CNNs in Plain English</h3>
+        <p>
+          Convolutional Neural Networks (CNNs) were designed for images. Early
+          versions in the 1980s struggled to read handwriting on mail, but by
+          2012, CNNs crushed the ImageNet competition and kicked off the deep
+          learning boom.
+        </p>
+        <p>
+          Think of a CNN as an artificial eye. Small “filters” slide over the
+          image looking for edges, curves, and textures. These low-level details
+          stack into higher-level features until the network can recognize whole
+          objects — much like how neurons in the visual cortex combine signals
+          from the retina to form sight.
+        </p>
+        <img
+          src="../static/images/conv_neural_net_diagram.png"
+          alt="Diagram of a Convolutional Neural Network, comparing it to the human visual system"
+          class="img-fluid"
+        />
+        <p class="caption">
+          <em
+            >A CNN mimics the human visual system, building from simple details
+            to complex objects.</em
+          >
+        </p>
+
+        <h3>Experiments</h3>
+        <p>
+          I split the dataset into training, validation, and test sets. Models
+          trained on the first two; the best one was judged on the unseen test
+          set.
+        </p>
+
+        <h4>Baseline Model</h4>
+        <p>
+          The baseline model, borrowed from the MNIST handwritten digit dataset,
+          used:
+        </p>
+        <ul>
+          <li>
+            <strong>One convolutional layer (32 filters):</strong>
+            Like a team of 32 tiny spotlights, each searching for different
+            patterns (edges, colors) in the image.
+          </li>
+          <li>
+            <strong>Max pooling:</strong> Shrinks the image, keeping only the
+            most important details—like summarizing a photo by its boldest
+            features.
+          </li>
+          <li>
+            <strong>Flatten + dense layer:</strong> Unrolls all the findings
+            into a list, then connects the dots to recognize bigger shapes or
+            objects.
+          </li>
+          <li>
+            <strong>Softmax output:</strong> Makes a final guess, giving a score
+            for each possible sign, and picks the most likely one.
+          </li>
+        </ul>
+        <p>
+          This simple network hit <strong>96.6% accuracy</strong>. Respectable —
+          but it faltered on visually similar signs, especially among speed
+          limits..
+        </p>
+        <img
+          src="../static/images/misclassifications_baseline.png"
+          alt="Baseline Model Misclassifications"
+          class="img-fluid"
+        />
+        <p class="caption">
+          <em
+            >Most mistakes were between signs that would likely trip up a human
+            too—like mixing up one speed limit for another.</em
+          >
+        </p>
+
+        <h4>Model Experimentation</h4>
+        <p>
+          After the baseline, I refined and improved the models through these
+          experiments:
+        </p>
+        <ol>
+          <li>
+            <strong>Class Weights:</strong> Weighted rarer signs like “rare
+            birds” in a birdwatching contest, so the model didn’t just count
+            pigeons. It helped the uncommon signs but slightly hurt the common
+            ones — accuracy dipped overall. A trade-off.
+          </li>
+          <li>
+            <strong>Two Convolutional Layers:</strong> Adding a second 64-filter
+            convolutional layer was like bringing in a second team of 64 even
+            sharper spotlights—and handing out reading glasses to everyone—so
+            the model could pick up finer details and patterns, boosting
+            accuracy to 98.3% and halving the errors.
+          </li>
+          <li>
+            <strong>Batch Normalization:</strong> BatchNorm re-scales inputs so
+            the network doesn’t over-rely on bright, common images and forget
+            about blurry or rare ones. Think of it as a photographer
+            auto-adjusting exposure after every shot. This stabilized training
+            and output results that were similar to the two-layer model.
+          </li>
+          <li>
+            <strong>Winning Combo: Two Conv Layers + BatchNorm:</strong>
+            Combining the two approaches delivered the best of both worlds and a
+            winning model: <b>99.4% accuracy</b>, cutting errors from 183
+            (baseline) to just <b>31</b>.
+          </li>
+        </ol>
+        <img
+          src="../static/images/training_curves_comparison.png"
+          alt="Comparing Baseline and Best Model Training Curves"
+          class="img-fluid"
+        />
+        <p class="caption">
+          <em
+            >Training curves for the baseline and two-convolutional layers +
+            BatchNorm models. The latter converge faster and to a higher
+            accuracy.</em
+          >
+        </p>
+        <img
+          src="../static/images/confusion_matrix_comparison.png"
+          alt="Comparing Baseline and Best Model Confusion Matrices"
+          class="img-fluid"
+        />
+        <p class="caption">
+          <em
+            >Confusion matrix: a strong diagonal means high accuracy;
+            off-diagonal numbers show errors—note how the winning model nearly
+            eliminates confusion, especially in the upper left.</em
+          >
+        </p>
+        <ol start="5">
+          <li>
+            <strong>Overkill: Extra Dense Layer:</strong> Adding more dense
+            layers made the model less confident and less accurate —
+            overthinking instead of focusing. Like me a lot of the time.
+          </li>
+        </ol>
+        <img
+          src="../static/images/confidence_histogram_comparison.png"
+          alt="Error-filled and uncertain predictions from the extra-dense-layer model compared to the confident, accurate predictions of the best model"
+          class="img-fluid"
+        />
+        <p class="caption">
+          <em
+            >Compared to the BatchNorm winning model’s confident predictions and
+            few errors, the extra Dense model’s histogram reveals low confidence
+            and frequent errors—its predictions are often unsure and
+            incorrect.</em
+          >
+        </p>
+
+        <br />
+
+        <h3>Model Comparison Table</h3>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Accuracy</th>
+              <th>Errors</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Baseline Model</strong></td>
+              <td>96.6%</td>
+              <td>183</td>
+              <td>
+                Simple starter model; struggles with rare or look-alike signs.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>+ Class Weights</strong></td>
+              <td>95.8%</td>
+              <td>222</td>
+              <td>Helps rare signs, but hurts common ones—a tradeoff.</td>
+            </tr>
+            <tr>
+              <td><strong>+ Conv Layer</strong></td>
+              <td>98.3%</td>
+              <td>92</td>
+              <td>Second layer spots more details; fewer mix-ups.</td>
+            </tr>
+            <tr>
+              <td><strong>+ Batch Norm</strong></td>
+              <td>98.3%</td>
+              <td>93</td>
+              <td>Training is steadier and results are more reliable.</td>
+            </tr>
+            <tr>
+              <td><strong>+ Conv + BN</strong></td>
+              <td><strong>99.4%</strong></td>
+              <td><strong>31</strong></td>
+              <td>
+                <strong>Best overall:</strong> very accurate, few mistakes.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>+ Conv + Dense</strong></td>
+              <td>93.8%</td>
+              <td>329</td>
+              <td>Too complex—model gets confused and makes more errors.</td>
+            </tr>
+            <tr>
+              <td><strong>+ Conv + Dense + BN</strong></td>
+              <td>98.3%</td>
+              <td>90</td>
+              <td>No real gain over simpler models; simple wins.</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          <em
+            ><strong>Accuracy</strong>: Percent of correct predictions.<br />
+            <strong>Errors</strong>: Wrong guesses out of 5,328 validation
+            samples.</em
+          >
+        </p>
+
+        <br />
+
+        <h3>Test Results</h3>
+        <p>
+          On the untouched test set, the best model hit <b>~99%</b> accuracy,
+          with only <b>43 mistakes</b>. Almost all were between signs that trip
+          up humans too (for example, a pedestrian sign mistaken for a
+          traffic-light warning).
+        </p>
+        <img
+          src="../static/images/Final_Test_Evaluation_confusion_matrix.png"
+          alt="Final Test Set Confusion Matrix"
+          class="img-fluid"
+        />
+        <p class="caption">
+          <em>Final test set confusion matrix: nearly perfect accuracy.</em>
+        </p>
+        <img
+          src="../static/images/Final_histogram.png"
+          alt="Final Test Set Prediction Confidence Histogram"
+          class="img-fluid"
+        />
+        <p class="caption">
+          <em
+            >Final test set confidence histogram: predictions with high
+            certainty and few errors.</em
+          >
+        </p>
+
+        <h3>Takeaways</h3>
+        <ul>
+          <li>
+            <strong>Simplicity wins.</strong> Compact, well-tuned CNNs can beat
+            bigger, fancier models.
+          </li>
+          <li>
+            <strong>Human-like errors.</strong> Misclassifications weren’t
+            random — they came from genuine ambiguity.
+          </li>
+          <li>
+            <strong>General principle.</strong> CNNs shine on small,
+            standardized objects — from traffic signs to barcodes to cells under
+            a microscope.
+          </li>
+        </ul>
+        <p>
+          While this wasn’t about building a self-driving car, it shows how far
+          compact neural networks can go in learning to read the road.
+        </p>
+        <p>
+          CNNs are like expert stamp collectors—great at spotting subtle
+          differences among many similar, well-defined items. That skill goes
+          far beyond traffic safety, shaping the future of retail, healthcare,
+          and more. Compact neural nets may never drive cars on their own, but
+          they’re already making streets safer, cities smarter, and technology
+          better for everyone.
+        </p>
       </main>
     </div>
   </body>

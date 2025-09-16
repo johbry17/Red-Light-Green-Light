@@ -18,6 +18,7 @@ $border-color: #1d5d5c;
 // General styles
 body {
   padding-top: 70px !important;
+  font-family: Arial, sans-serif;
 }
 
 body.jp-Notebook {
@@ -46,6 +47,27 @@ h3,
 h4 {
   font-weight: bold;
   color: $black;
+}
+
+p {
+  line-height: 1.6;
+  color: $black;
+  font-size: 1.1em;
+}
+
+ol, ul {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.1em;
+}
+
+// caption
+.caption {
+  text-align: center;
+  font-size: 1em;
+  color: #555;
+  margin: 0.5em auto 1.5em auto;
+  max-width: 700px;
+  font-style: italic;
 }
 
 // spacer div
