@@ -89,7 +89,7 @@ MIT License © 2025 Bryan Johns. See [LICENSE](LICENSE) for details.
 - Thanks to HarvardX’s CS50 AI for the initial inspiration.  
 
 <a id="cnn-footnote"></a>
-**[1]** CNN diagram inspired by _Deep learning for wireless capsule endoscopy: a systematic review and meta-analysis_, Soffer, Shelly, et al, _Gastrointestinal Endoscopy_, © 2020 American Society for Gastrointestinal Endoscopy. Image generated with AI and edited by Bryan Johns. Used for educational purposes only. If this use does not qualify as fair use, I am happy to remove the image upon request.
+**[1]** CNN diagram inspired by _[Deep learning for wireless capsule endoscopy: a systematic review and meta-analysis](https://www.giejournal.org/article/S0016-5107(20)34193-6/abstract)_, Soffer, Shelly, et al, _Gastrointestinal Endoscopy_, © 2020 American Society for Gastrointestinal Endoscopy. Image generated with AI and edited by Bryan Johns. Used for educational purposes only. If this use does not qualify as fair use, I am happy to remove the image upon request.
 
 ## Author  
 Bryan Johns, September 2025  
