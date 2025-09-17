@@ -50,6 +50,9 @@ To explore the project:
 
 ## Gallery  
 
+![Diagram comparing CNNs to biological vision](./resources/images/conv_neural_net_diagram.png)
+*CNN architecture: mimics the human eye by combining simple features into complex object recognition.[1](#cnn-footnote)*
+
 ![Class Distribution Plot](./resources/images/class_distribution.png)
 *Class imbalance: Label distribution is highly skewed across classes.*  
 
@@ -84,6 +87,9 @@ MIT License © 2025 Bryan Johns. See [LICENSE](LICENSE) for details.
 ## Acknowledgements  
 - Thanks to the GTSRB team for making the dataset publicly available.  
 - Thanks to HarvardX’s CS50 AI for the initial inspiration.  
+
+<a id="cnn-footnote"></a>
+**[1]** CNN diagram inspired by _Deep learning for wireless capsule endoscopy: a systematic review and meta-analysis_, Soffer, Shelly, et al, _Gastrointestinal Endoscopy_, © 2020 American Society for Gastrointestinal Endoscopy. Image generated with AI and edited by Bryan Johns. Used for educational purposes only. If this use does not qualify as fair use, I am happy to remove the image upon request.
 
 ## Author  
 Bryan Johns, September 2025  
