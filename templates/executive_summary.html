@@ -328,17 +328,17 @@
         />
         <p class="caption">
           <em
-            >Confusion matrix: a strong diagonal means high accuracy;
-            off-diagonal numbers show errors—note how the winning model nearly
-            eliminates confusion, a sea of zeros. The upper left corner is for
-            speed limits, a frequent model error.</em
+            >Confusion matrix: A bold diagonal signals high accuracy;
+            off-diagonal values mark mistakes. The winning model’s matrix is
+            nearly all zeros—errors are rare. Most confusion clusters in the
+            upper left, where speed limits trip up the model.</em
           >
         </p>
         <ol start="5">
           <li>
             <strong>Overkill: Extra Dense Layer:</strong> Adding more dense
             layers made the model less confident and less accurate —
-            overthinking instead of focusing. Like me a lot of the time.
+            overthinking instead of focusing. Like me much of the time.
           </li>
         </ol>
         <img
@@ -348,9 +348,9 @@
         />
         <p class="caption">
           <em
-            >Compared to the winning model’s confident predictions and few
-            errors, the overkill model’s histogram reveals low confidence and
-            frequent errors—its predictions are often unsure and incorrect.</em
+            >The winning model’s histogram shows few, confident errors; the
+            overkill model, by contrast, makes many errors and is often unsure
+            in its predictions.</em
           >
         </p>
 
@@ -428,12 +428,11 @@
         <h3>Test Results</h3>
         <p>
           On the untouched test set, the best model hit <b>~99%</b> accuracy,
-          with only <b>43 mistakes</b>. Almost all were between signs that trip
-          up humans too (for example, a pedestrian sign mistaken for a
-          traffic-light warning).
+          with only <b>43 mistakes</b>. Almost all were misread speed limits,
+          signs that trip up humans too.
         </p>
         <img
-          src="../static/images/Final_Test_Evaluation_confusion_matrix.png"
+          src="../static/images/Winning_Model_Test_Set_confusion_matrix.png"
           alt="Final Test Set Confusion Matrix"
           class="img-fluid"
         />
@@ -441,14 +440,13 @@
           <em>Final test set confusion matrix: nearly perfect accuracy.</em>
         </p>
         <img
-          src="../static/images/Final_histogram.png"
+          src="../static/images/Winning_Model_Test_Set_histogram.png"
           alt="Final Test Set Prediction Confidence Histogram"
           class="img-fluid"
         />
         <p class="caption">
           <em
-            >Final test set confidence histogram: predictions with high
-            certainty and few errors.</em
+            >Final test set confidence histogram: confident, accurate predictions—errors are rare.</em
           >
         </p>
 
