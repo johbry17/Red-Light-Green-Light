@@ -60,7 +60,7 @@ To explore the project:
 *Validation and training curves: best model vs. baseline.*  
 
 ![Confusion Matrix Comparison](./resources/images/confusion_matrix_comparison.png)
-*Confusion matrices: best model sharply reduces off-diagonal errors.*  
+*Confusion matrices: best model noticeably reduces off-diagonal errors.*  
 
 ![Misclassifications](./resources/images/misclassifications_baseline.png)
 *Frequent errors: visually similar signs are misclassified.*  
@@ -83,7 +83,7 @@ MIT License © 2025 Bryan Johns. See [LICENSE](LICENSE) for details.
 
 ## Acknowledgements  
 - Thanks to the GTSRB team for making the dataset publicly available.  
-- Thanks to HarvardX’s CS50 for the initial inspiration.  
+- Thanks to HarvardX’s CS50 AI for the initial inspiration.  
 
 ## Author  
 Bryan Johns, September 2025  

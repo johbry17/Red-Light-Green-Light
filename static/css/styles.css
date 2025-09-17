@@ -90,6 +90,16 @@ header img,
   display: block;
 }
 
+.img-soft-border {
+  border: 2px solid #ddd;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  display: block;
+  margin: auto;
+  max-width: 900px;
+  width: 100%;
+}
+
 .project-banner {
   background: linear-gradient(90deg, #198754 50%, rgba(21, 115, 71, 0.35) 100%);
   background-size: cover;
