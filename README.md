@@ -1,6 +1,6 @@
 # Red-Light-Green-Light: Decoding Traffic Signs with Computer Vision
 
-*Can a neural net learn to read traffic signs? A computer vision experiment in classification using the German Traffic Sign Recognition Benchmark.*
+*Giving a computer eyes: classifying road signs with deep learning.*
 
 🔗 [Final Report](https://johbry17.github.io/Red-Light-Green-Light/)  
 
@@ -44,10 +44,35 @@ The workflow includes:
 ## Usage  
 To explore the project:  
 1. Clone the repository.  
-2. Open and run the notebook `/notebooks/model_analysis.ipynb` for model building and evaluation  
-3. See final results and conclusions published to the web [here](https://johbry17.github.io/Red-Light-Green-Light/).  
+2. Open and run the notebook `./notebooks/model_analysis.ipynb` for model building and evaluation  
+3. To generate or customize the figures for the executive summary, run `./notebooks/executive_summary_visuals.ipynb`
+4. See final results and conclusions published to the web [here](https://johbry17.github.io/Red-Light-Green-Light/).  
 
 ## Gallery  
+
+![Class Distribution Plot](./resources/images/class_distribution.png)
+*Class imbalance: Label distribution is highly skewed across classes.*  
+
+![GTSRB Sample Images](./resources/images/GTSRB_representatives.png)
+*Dataset diversity: representative image for each label.*  
+
+![Training Curve Comparison](./resources/images/training_curves_comparison.png)
+*Validation and training curves: best model vs. baseline.*  
+
+![Confusion Matrix Comparison](./resources/images/confusion_matrix_comparison.png)
+*Confusion matrices: best model sharply reduces off-diagonal errors.*  
+
+![Misclassifications](./resources/images/misclassifications_baseline.png)
+*Frequent errors: visually similar signs are misclassified.*  
+
+![Error Confidence Histogram](./resources/images/confidence_histogram_comparison.png)
+*Histogram: overkill model’s errors are less confident and more frequent.*  
+
+## Certificate  
+
+Completed during the course of HarvardX's [CS50’s Introduction to Artificial Intelligence with Python](https://cs50.harvard.edu/ai/).  The project began as a simple assignment and grew into a portfolio piece.  
+
+![cs50 Artificial Intelligence Certificate](./resources/images/CS50AI.png)
 
 ## References  
 - Data provided by the [German Traffic Sign Recognition Benchmark (GTSRB)](https://benchmark.ini.rub.de/gtsrb_dataset.html).  
@@ -58,6 +83,7 @@ MIT License © 2025 Bryan Johns. See [LICENSE](LICENSE) for details.
 
 ## Acknowledgements  
 - Thanks to the GTSRB team for making the dataset publicly available.  
+- Thanks to HarvardX’s CS50 for the initial inspiration.  
 
 ## Author  
 Bryan Johns, September 2025  
