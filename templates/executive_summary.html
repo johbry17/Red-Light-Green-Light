@@ -262,7 +262,7 @@
         <p>
           This simple network hit <strong>96.6% accuracy</strong>. Respectable —
           but it faltered on visually similar signs, especially among speed
-          limits..
+          limits.
         </p>
         <img
           src="../static/images/misclassifications_baseline.png"
@@ -316,9 +316,9 @@
         />
         <p class="caption">
           <em
-            >Training curves for the baseline and two-convolutional layers +
-            BatchNorm models. The latter converge faster and to a higher
-            accuracy.</em
+            >Notice how the winning model’s curves nearly overlap, while the
+            baseline’s remain separated. This means the baseline doesn’t match
+            the winning model’s consistency on new examples</em
           >
         </p>
         <img
@@ -330,7 +330,8 @@
           <em
             >Confusion matrix: a strong diagonal means high accuracy;
             off-diagonal numbers show errors—note how the winning model nearly
-            eliminates confusion, especially in the upper left.</em
+            eliminates confusion, a sea of zeros. The upper left corner is for
+            speed limits, a frequent model error.</em
           >
         </p>
         <ol start="5">
@@ -347,10 +348,9 @@
         />
         <p class="caption">
           <em
-            >Compared to the BatchNorm winning model’s confident predictions and
-            few errors, the extra Dense model’s histogram reveals low confidence
-            and frequent errors—its predictions are often unsure and
-            incorrect.</em
+            >Compared to the winning model’s confident predictions and few
+            errors, the overkill model’s histogram reveals low confidence and
+            frequent errors—its predictions are often unsure and incorrect.</em
           >
         </p>
 

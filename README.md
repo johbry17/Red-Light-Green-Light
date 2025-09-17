@@ -44,7 +44,7 @@ The workflow includes:
 ## Usage  
 To explore the project:  
 1. Clone the repository.  
-2. Open and run the notebook `/templates/model_analysis.ipynb` for model building and evaluation  
+2. Open and run the notebook `/notebooks/model_analysis.ipynb` for model building and evaluation  
 3. See final results and conclusions published to the web [here](https://johbry17.github.io/Red-Light-Green-Light/).  
 
 ## Gallery  

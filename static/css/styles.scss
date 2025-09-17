@@ -55,8 +55,9 @@ p {
   font-size: 1.1em;
 }
 
-ol, ul {
-  font-family: 'Arial', sans-serif;
+ol,
+ul {
+  font-family: "Arial", sans-serif;
   font-size: 1.1em;
 }
 
@@ -68,6 +69,16 @@ ol, ul {
   margin: 0.5em auto 1.5em auto;
   max-width: 700px;
   font-style: italic;
+}
+// nbconvert caption
+.output_html .caption {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100%;
 }
 
 // spacer div
