@@ -14670,10 +14670,10 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 <div class="project-banner">
   <span class="project-banner-main">
-    <span class="red-light">Red Light</span>  <span class="green-light">Green Light</span>
+    <span class="red-light">Red Light,</span>  <span class="green-light">Green Light</span>
   </span>
   <span class="project-banner-sub">Teaching AI to Read Traffic Signs</span>
-</div><h3>A deep learning project for traffic sign classification using convolutional neural networks and TensorFlow on the GTSRB dataset.</h3><div id="title">
+</div><h3>A deep learning project for traffic sign classification using convolutional neural networks (CNNs) and TensorFlow on the GTSRB dataset.</h3><div id="title">
   Model Analysis
   <span class="subtitle">Comparative Evaluation and Test Set Results</span>
 </div>
@@ -14690,7 +14690,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#dataset-overview">Dataset Overview</a></li>
 <li><a href="#model-architecture">Model Architecture</a></li>
-<li><a href="#training-and-evaluation">Training and Evaluation</a><ul>
+<li><a href="#training-and-evaluation">Training and Evaluation Outputs</a><ul>
 <li><a href="#baseline-model">Baseline Model</a></li>
 <li><a href="#baseline-model-with-class-weights">Baseline Model with Class Weights</a></li>
 <li><a href="#two-convolutional-layers">Two Convolutional Layers</a></li>
@@ -14717,9 +14717,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <p><a id="introduction"></a></p>
 <h1 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h1><p><a href="#">Back to Top</a></p>
 <p><span style="font-weight: bold;">Data Source:</span> <a href="https://benchmark.ini.rub.de/gtsrb_news.html" target="_blank">German Traffic Sign Recognition Benchmark (GTSRB) dataset</a></p>
-<p>The German Traffic Sign Recognition Benchmark (GTSRB) is a widely used dataset for traffic sign classification, containing over 50,000 labeled images across 43 classes. Each image captures a traffic sign in real-world conditions, with variations in lighting, perspective, and occlusion. Accurate recognition of these signs is critical for autonomous driving, advanced driver-assistance systems, and road safety research.</p>
-<p>In this project, the task is to design a series of convolutional neural network (CNN) models capable of classifying traffic signs in the GTSRB dataset. Architectural adjustments—such as class weighting, additional convolutional layers, and batch normalization—are introduced incrementally, allowing us to empirically trace improvements from a simple baseline to a high-performing model.</p>
-<p>The following sections detail the model architectures, training and evaluation methods, and results. The focus is on how targeted design choices affect classification performance across both majority and minority classes, ultimately identifying a configuration that maximizes accuracy and generalization.</p>
+<p>The German Traffic Sign Recognition Benchmark (GTSRB) is a widely used dataset for traffic sign classification, containing over 50,000 labeled images across 43 classes. Images capture signs under varied real-world conditions such as lighting, perspective, and occlusion. Accurate recognition of these signs is critical for autonomous driving, driver-assistance systems, and road safety research.</p>
+<p>In this project, we design a series of CNN models to classify traffic signs in GTSRB. Architectural adjustments—class weighting, added convolutional layers, and batch normalization—are introduced incrementally, allowing us to trace improvements from a simple baseline to a high-performing model.</p>
 
 </div>
 </div>
@@ -14765,9 +14764,13 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a id="dataset-overview"></a></p>
 <h2 id="Dataset-Overview">Dataset Overview<a class="anchor-link" href="#Dataset-Overview">&#182;</a></h2><p><a href="#">Back to Top</a></p>
-<p>Before building models, it’s useful to examine the composition of the dataset. The German Traffic Sign Recognition Benchmark spans 43 distinct classes, ranging from common signs (e.g., speed limits, yield, stop) to rare categories that appear only a few hundred times.</p>
-<p>The figure below illustrates the class distribution, highlighting the imbalance between majority and minority classes—a challenge that directly affects model training. Below it, a visual gallery of all 43 traffic signs provides an intuitive reference for the categories the model must learn to distinguish, often under challenging real-world conditions such as glare, motion blur, or partial occlusion.</p>
-<p>This perspective underscores the dual challenge of traffic sign recognition: not only achieving high overall accuracy, but also ensuring that rare and visually similar signs are correctly classified.</p>
+<p>The GTSRB dataset includes:</p>
+<ul>
+<li><strong>Classes:</strong> 43  </li>
+<li><strong>Images:</strong> ~50,000  </li>
+<li><strong>Conditions:</strong> Diverse perspectives, lighting, and partial occlusions  </li>
+</ul>
+<p>Some classes are well represented (e.g., common speed limit signs), while others are rare. This imbalance creates challenges for models, which may otherwise bias toward frequent categories. The task requires high overall accuracy and reliable recognition of rare or visually similar signs.</p>
 
 </div>
 </div>
@@ -14850,7 +14853,7 @@ class="
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a id="model-architecture"></a></p>
 <h1 id="Model-Architecture">Model Architecture<a class="anchor-link" href="#Model-Architecture">&#182;</a></h1><p><a href="#">Back to Top</a></p>
-<p>The models are built sequentially, starting from a simple baseline and gradually adding complexity. Key modifications include:</p>
+<p>Models were built sequentially, starting from a simple baseline and incrementally adding complexity. Key modifications included:</p>
 <ul>
 <li>Class weighting to mitigate imbalance.</li>
 <li>Additional convolutional layers for richer feature extraction.</li>
@@ -14863,12 +14866,12 @@ class="
 <li>Baseline Model + Class Weights</li>
 <li>Baseline Model + Second Conv Layer</li>
 <li>Baseline Model + Batch Normalization</li>
-<li>Baseline Model + Second Conv Layer + Batch Normalization (best performing model)</li>
+<li>Baseline Model + Second Conv Layer + Batch Normalization (best performing)</li>
 <li>Baseline Model + Second Conv Layer + Dense Layer</li>
 <li>Baseline Model + Second Conv Layer + Dense Layer + Batch Normalization</li>
 </ul>
-<p>Each component plays a distinct role in shaping performance. Convolutional layers expand the network’s ability to capture increasingly complex visual patterns, while batch normalization reduces internal variance, smoothing out the learning process and improving generalization. Class weighting ensures that minority categories—such as rarely encountered road signs—are not overshadowed by majority classes like common speed limits. Dense layers, in theory, allow for deeper decision boundaries, but in practice they risk overfitting when the signal is already strong.</p>
-<p>All models are trained on the GTSRB training set and evaluated on a held-out validation/test split. An input resolution size of 30×30 balances detail with efficiency. Training uses categorical cross-entropy loss with the Adam optimizer, together with early stopping to prevent overfitting. Evaluation relies on accuracy as the primary benchmark, supplemented by class-level precision, recall, and F1-score to give a fuller picture of model performance across all 43 categories.</p>
+<p>Each component plays a distinct role in shaping performance. Convolutional layers expand the network’s ability to capture complex visual patterns, while batch normalization reduces internal variance, smoothing the learning process and improving generalization. Class weighting ensures that minority categories—such as rare road signs—are not overshadowed by majority classes. Dense layers, while theoretically enabling deeper decision boundaries, tended to introduce instability once convolutional features were well-represented.</p>
+<p>All models were trained on the GTSRB training set and evaluated on a held-out validation/test split. An input resolution of 30×30 balances detail with efficiency. Training used categorical cross-entropy loss and the Adam optimizer, with early stopping to prevent overfitting. Evaluation relied on accuracy as the primary benchmark, supplemented by class-level precision, recall, and F1-score for a fuller picture of performance across all 43 categories.</p>
 
 </div>
 </div>
@@ -14917,24 +14920,24 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a id="training-and-evaluation"></a></p>
-<h1 id="Training-and-Evaluation">Training and Evaluation<a class="anchor-link" href="#Training-and-Evaluation">&#182;</a></h1><p><a href="#">Back to Top</a></p>
-<p>The following section presents the training and evaluation results for each model. To help interpret these outputs, here is a guide to what will be shown:</p>
+<h1 id="Training-and-Evaluation-Outputs">Training and Evaluation Outputs<a class="anchor-link" href="#Training-and-Evaluation-Outputs">&#182;</a></h1><p><a href="#">Back to Top</a></p>
+<p>The following section presents the training and evaluation results for each model. To help interpret these outputs, here is a guide to what is shown:</p>
 <h4 id="Model-Summary">Model Summary<a class="anchor-link" href="#Model-Summary">&#182;</a></h4><ul>
-<li>Each evaluation begins with a short recap of the model’s architecture, highlighting which modifications (extra convolutional layers, batch normalization, class weights, etc.) are active. This context helps link back to the design choices described earlier.</li>
+<li>Each evaluation begins with a recap of the model’s architecture, highlighting which modifications (extra convolutional layers, batch normalization, class weights, etc.) are active.</li>
 </ul>
 <h4 id="Training-and-Loss-Curves">Training and Loss Curves<a class="anchor-link" href="#Training-and-Loss-Curves">&#182;</a></h4><ul>
-<li>Plots of accuracy and loss over time provide insight into the learning process. Smooth upward trends with converging validation curves indicate stable training, while divergence suggests overfitting.</li>
+<li>Plots of accuracy and loss over time provide insight into the learning process. Smooth convergence of training and validation curves indicates stability, while divergence signals overfitting.</li>
 </ul>
 <h4 id="Confusion-Matrix">Confusion Matrix<a class="anchor-link" href="#Confusion-Matrix">&#182;</a></h4><ul>
-<li>The confusion matrix displays predicted vs. true labels across all 43 categories. While dense, most cells are zero, making the diagonal the key reference point. A sharp diagonal means strong performance; snaggled or blurred diagonals highlight common sources of error. Of particular note is the upper-left cluster, where speed-limit signs with visually similar designs tend to be confused with one another.</li>
+<li>The confusion matrix displays predicted vs. true labels across all 43 categories. Though visually dense, most cells are zero; the diagonal is the key reference. A sharp diagonal means strong performance; off-diagonal errors highlight common confusions, especially in the upper-left cluster, among visually similar speed-limit signs.</li>
 </ul>
 <h4 id="Classification-Report">Classification Report<a class="anchor-link" href="#Classification-Report">&#182;</a></h4><ul>
-<li>Each model’s precision, recall, F1-score, and support are shown for every class. The report is best read by comparing majority and minority classes—are rare categories still detected reliably, or do they collapse into false negatives? At the bottom, the weighted averages summarize performance across all classes, balancing prevalence with accuracy.</li>
+<li>Each model’s precision, recall, F1-score, and support are shown for every class. Compare majority and minority classes to see if rare categories are detected reliably or collapse into false negatives. Weighted averages summarize overall performance.</li>
 </ul>
 <h4 id="Error-&amp;-Misclassification-Analysis">Error &amp; Misclassification Analysis<a class="anchor-link" href="#Error-&amp;-Misclassification-Analysis">&#182;</a></h4><ul>
-<li>To make mistakes more tangible, a grid displays examples of the top four most common misclassifications. Each image shows the true label, predicted label, and model confidence. Slight blurriness comes from convolutional feature processing, not the dataset itself. A text summary follows, reporting total misclassifications and the five most frequent error types—often one speed limit confused with another (e.g., 50 km/h mistaken for 80 km/h). A histogram of confidence in misclassifications further clarifies how “sure” the model was when wrong. Flat or low-confidence mistakes suggest uncertainty, while high-confidence errors reveal systematic blind spots.</li>
+<li>A grid displays examples of the top four most common misclassifications, showing true label, predicted label, and model confidence. Any blurriness reflects convolutional feature extraction, not dataset quality. A text summary reports total misclassifications and the five most frequent error types—often one speed limit confused for another (e.g., 50 km/h vs. 80 km/h). A histogram of misclassification confidence clarifies how “sure” the model was when wrong: low-confidence mistakes suggest uncertainty, while high-confidence errors reveal systematic blind spots.</li>
 </ul>
-<p>Together, these elements give a full account of each model’s strengths and weaknesses, preparing the ground for the final comparison of architectures.</p>
+<p>Together, these elements provide a comprehensive view of each model’s strengths and weaknesses, setting the stage for the final architectural comparison.</p>
 
 </div>
 </div>
@@ -18930,7 +18933,7 @@ class="
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a id="comparative-model-analysis"></a></p>
 <h1 id="Comparative-Model-Analysis">Comparative Model Analysis<a class="anchor-link" href="#Comparative-Model-Analysis">&#182;</a></h1><p><a href="#">Back to Top</a></p>
-<p>In short, the best-performing architecture balances depth and stability without overcomplicating the dense layers. The results highlight the importance of controlled complexity: richer convolutional feature extraction and normalization bring consistent gains, while additional dense layers hurt more than they help.</p>
+<p>Model progression shows how each architectural tweak affects performance. The best model balances depth and stability—more convolution and normalization help, while extra dense layers only hinder.</p>
 
 </div>
 </div>
@@ -18941,6 +18944,8 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<link rel="stylesheet" href="../static/css/styles.css">
+
 <h3 id="Model-Comparison-Table">Model Comparison Table<a class="anchor-link" href="#Model-Comparison-Table">&#182;</a></h3><table>
 <thead><tr>
 <th>Model</th>
@@ -18960,7 +18965,7 @@ class="
 <td>0.966</td>
 <td>0.966</td>
 <td>183</td>
-<td>A simple, MNIST-style CNN provides a solid foundation but struggles with visually similar or rare signs.</td>
+<td>Solid foundation; struggles with minority classes.</td>
 </tr>
 <tr>
 <td><strong>+ Class Weights</strong></td>
@@ -18969,7 +18974,7 @@ class="
 <td>0.958</td>
 <td>0.958</td>
 <td>222</td>
-<td>Helps minority classes at the expense of majority class precision, showing the tradeoff in imbalanced datasets.</td>
+<td>Improves minority class metrics; reduces majority performance. Tradeoff observed.</td>
 </tr>
 <tr>
 <td><strong>+ Conv Layer</strong></td>
@@ -18978,7 +18983,7 @@ class="
 <td>0.983</td>
 <td>0.983</td>
 <td>92</td>
-<td>Adding a second convolutional layer significantly improves feature extraction, reducing confusion among similar signs.</td>
+<td>Enhanced feature extraction; reduces confusion among similar signs.</td>
 </tr>
 <tr>
 <td><strong>+ Batch Norm</strong></td>
@@ -18987,7 +18992,7 @@ class="
 <td>0.983</td>
 <td>0.982</td>
 <td>93</td>
-<td>Stabilizes training and improves calibration, producing smoother convergence and more consistent results.</td>
+<td>Stabilizes training and accelerates convergence; yields more consistent results.</td>
 </tr>
 <tr>
 <td><strong>+ Conv + BN</strong></td>
@@ -18996,7 +19001,7 @@ class="
 <td><strong>0.994</strong></td>
 <td><strong>0.994</strong></td>
 <td><strong>31</strong></td>
-<td>The strongest model overall: high accuracy, low error count, and balanced performance across classes.</td>
+<td><strong>Strongest overall</strong>—high accuracy, few errors across classes.</td>
 </tr>
 <tr>
 <td><strong>+ Conv + Dense</strong></td>
@@ -19005,7 +19010,7 @@ class="
 <td>0.938</td>
 <td>0.933</td>
 <td>329</td>
-<td>Demonstrates the risk of unnecessary complexity: overfitting and instability, with entire classes collapsing.</td>
+<td>Added complexity degrades performance; some classes collapse.</td>
 </tr>
 <tr>
 <td><strong>+ Conv + Dense + BN</strong></td>
@@ -19014,17 +19019,36 @@ class="
 <td>0.983</td>
 <td>0.983</td>
 <td>90</td>
-<td>While more complex, it delivers no advantage over the simpler Conv+BN model, underscoring the value of parsimony.</td>
+<td>No improvement over Conv+BN; simpler architecture prevails.</td>
 </tr>
 </tbody>
 </table>
-<ul>
-<li><strong>Accuracy</strong>: Proportion of all predictions that are correct.</li>
-<li><strong>Precision</strong>: Proportion of positive predictions that are correct (True Positives / [True Positives + False Positives]).</li>
-<li><strong>Recall</strong>: Proportion of actual positives correctly identified (True Positives / [True Positives + False Negatives]).</li>
-<li><strong>F1-score</strong>: Harmonic mean balancing precision and recall equally.</li>
-<li><strong>Errors</strong>: Number of misclassifications of 5328 total samples in validation set.</li>
-</ul>
+<p class="caption" style="display:flex;justify-content:center;align-items:center;text-align:center;">
+  <em>
+    <strong>Accuracy</strong>: Proportion of all predictions that are correct.<br>
+    <strong>Precision</strong>: Proportion of positive predictions that are correct (True Positives / [True Positives + False Positives]).<br>
+    <strong>Recall</strong>: Proportion of actual positives correctly identified (True Positives / [True Positives + False Negatives]).<br>
+    <strong>F1-score</strong>: Harmonic mean balancing precision and recall equally.<br>
+    <strong>Errors</strong>: Number of misclassifications of 5,328 total samples in validation set.
+  </em>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h4 id="Baseline-Model">Baseline Model<a class="anchor-link" href="#Baseline-Model">&#182;</a></h4><p>A simple MNIST-style CNN achieved 96.6% accuracy with strong class-level balance, but struggled with visually similar signs (e.g., speed limits) and some minority categories. Solid foundation but systematic challenges remain.</p>
+<h4 id="+Class-Weights">+Class Weights<a class="anchor-link" href="#+Class-Weights">&#182;</a></h4><p>Minority classes (e.g., 19, 29) improved in recall and precision, but majority classes lost ground, dropping overall accuracy to 95.8%. Highlights the inherent tradeoff in rebalancing imbalanced datasets.</p>
+<h4 id="+Convolutional-Layer">+Convolutional Layer<a class="anchor-link" href="#+Convolutional-Layer">&#182;</a></h4><p>Adding a second conv layer boosted accuracy to 98.3% by extracting richer features, reducing confusion among similar signs, and stabilizing minority performance. Clear gain without overfitting.</p>
+<h4 id="+Batch-Normalization">+Batch Normalization<a class="anchor-link" href="#+Batch-Normalization">&#182;</a></h4><p>Batch normalization maintained 98.3% accuracy but smoothed training and improved calibration, especially for minority classes. Reduced variance across runs, yielding more reliable results.</p>
+<h4 id="+Convolutional-Layer-+-Batch-Normalization">+Convolutional Layer + Batch Normalization<a class="anchor-link" href="#+Convolutional-Layer-+-Batch-Normalization">&#182;</a></h4><p>The optimal model: <strong>99.4% accuracy</strong>, balanced across nearly all classes, with previously weak categories (e.g., class 5) substantially improved. Depth plus normalization proved the strongest combination.</p>
+<h4 id="+Dense-Layer">+Dense Layer<a class="anchor-link" href="#+Dense-Layer">&#182;</a></h4><p>Adding an extra dense layer destabilized training, collapsing several classes and cutting accuracy to 93.8%. Demonstrates the risk of unnecessary complexity.</p>
+<h4 id="+Dense-Layer-+-Batch-Normalization">+Dense Layer + Batch Normalization<a class="anchor-link" href="#+Dense-Layer-+-Batch-Normalization">&#182;</a></h4><p>Batch normalization partially mitigated dense-layer instability, recovering to 98.3%. Still fell short of Conv+BN, confirming that added dense layers do not improve generalization.</p>
+<h4 id="Overall-Trajectory">Overall Trajectory<a class="anchor-link" href="#Overall-Trajectory">&#182;</a></h4><p>Accuracy improved from <strong>96.6% (Baseline)</strong> to <strong>99.4% (+Conv+BN)</strong>. Class weighting improved minorities but weakened majority performance; convolutional depth enhanced feature extraction; batch normalization stabilized training and calibration. Extra dense layers consistently underperformed. The <strong>two-convolutional-layer + BN model</strong> struck the best balance of accuracy, stability, and class-level consistency.</p>
 
 </div>
 </div>
@@ -19035,26 +19059,7 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>The progression of models illustrates how incremental architectural changes impact performance:</p>
-<h4 id="Baseline-Model">Baseline Model<a class="anchor-link" href="#Baseline-Model">&#182;</a></h4><p>The baseline provides a strong foundation, achieving 96.6% accuracy, with weighted precision, recall, and f1-scores all around 0.966–0.967. Performance is generally high across most classes, with many exceeding 0.95 on all metrics, even in minority categories. Weaknesses appear in challenging classes: class 5 (speed limits) shows precision of 0.82, while classes 20 and 30 underperform in the mid-80s for precision and recall. Some minority classes also lag (e.g., class 19 recall 0.84, class 29 recall 0.85). Training and validation curves suggest the gap is due to dropout rather than genuine overfitting, and the confidence histogram indicates reasonably balanced predictions. Overall, this baseline is robust but highlights systematic challenges with class imbalance and visually similar signs.</p>
-<h4 id="+Class-Weights">+Class Weights<a class="anchor-link" href="#+Class-Weights">&#182;</a></h4><p>Applying class weighting targets underrepresented categories, leading to notable improvements in some minority classes: class 29 recall rises from 0.85 to 0.88, and class 19 from 0.84 to 0.97. However, this comes at a small cost to majority classes: class 5 precision drops from 0.82 to 0.78, and class 2 recall decreases from 0.90 to 0.78. Overall accuracy slightly decreases to 95.8%, with weighted metrics just below 0.96. This model demonstrates the tradeoff inherent in rebalancing: minority performance improves while some majority classes lose ground, highlighting the importance of careful weighting.</p>
-<h4 id="+Convolutional-Layer">+Convolutional Layer<a class="anchor-link" href="#+Convolutional-Layer">&#182;</a></h4><p>Adding a second convolutional layer significantly improves performance. Accuracy rises to 98.3%, with precision, recall, and f1 all around 0.983. Misclassifications among visually similar signs, such as class 5, are reduced (precision rises from 0.82 → 0.90). Minority classes stabilize, with fewer extreme outliers in class-level scores. Training remains smooth, with no signs of overfitting, and confidence calibration is consistent. The added depth allows the network to capture richer hierarchical features, directly reducing systematic errors.</p>
-<h4 id="+Batch-Normalization">+Batch Normalization<a class="anchor-link" href="#+Batch-Normalization">&#182;</a></h4><p>Introducing Batch Normalization (BN) after the convolutional layers stabilizes learning. Accuracy remains at 98.3%, with weighted metrics around 0.983. Training curves converge more cleanly, and generalization improves across epochs. Minority classes, particularly 19 and 29, show enhanced performance, reaching near parity with majority classes. Calibration improves, with fewer overconfident misclassifications. BN reduces variance and smooths the learning process, making training more consistent and reliable.</p>
-<h4 id="+Convolutional-Layer-+-Batch-Normalization">+Convolutional Layer + Batch Normalization<a class="anchor-link" href="#+Convolutional-Layer-+-Batch-Normalization">&#182;</a></h4><p>Combining an extra convolutional layer with batch normalization delivers peak performance. Accuracy reaches 99.4%, with weighted precision, recall, and f1 all at 0.994. Nearly all classes achieve precision and recall above 0.95, and previously challenging classes like 5 reach 0.97 precision. Training is stable, validation gaps are minimal, and predictions show excellent calibration. This architecture strikes the optimal balance between depth, regularization, and efficiency, achieving both high accuracy and reliable performance across classes.</p>
-<h4 id="+Dense-Layer">+Dense Layer<a class="anchor-link" href="#+Dense-Layer">&#182;</a></h4><p>Adding a second Dense layer after the convolutional blocks destabilizes performance. Accuracy drops sharply to 93.8%, with weighted metrics around 0.933–0.938. Several classes collapse entirely (e.g., 24 with 0.0 for all scores, 27 with recall 0.21), and others such as 20, 28, and 30 fall below 0.80 f1. Even mid-sized classes (e.g., 7, f1 = 0.79) degrade, highlighting the sensitivity of minority categories. The added dense capacity introduces overfitting and overwhelms feature extraction from the convolutional layers.</p>
-<h4 id="+Dense-Layer-+-Batch-Normalization">+Dense Layer + Batch Normalization<a class="anchor-link" href="#+Dense-Layer-+-Batch-Normalization">&#182;</a></h4><p>Adding BN to the dense layers mitigates some instability. Accuracy recovers to 98.3%, with weighted metrics at 0.983. However, performance remains below the +Conv+BN peak of 99.4%. Some minority classes still dip slightly, and training variance increases, showing that additional dense complexity does not improve global generalization and can slow training.</p>
-<h4 id="Overall-Trajectory">Overall Trajectory<a class="anchor-link" href="#Overall-Trajectory">&#182;</a></h4><p>Across the progression, accuracy improves from 96.6% (Baseline) to 99.4% (+Conv+BN). Class weighting boosts minority classes at the cost of majority performance, convolutional layers enhance feature extraction, and batch normalization stabilizes training and calibration. Dense layers beyond convolutional + BN show diminishing or negative returns. The optimal architecture—two convolutional layers with batch normalization—provides the best balance of accuracy, stability, and class-level consistency.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="And-the-winner-is...">And the winner is...<a class="anchor-link" href="#And-the-winner-is...">&#182;</a></h3><h2 id="Two-Convolutional-Layers-with-Batch-Normalization">Two Convolutional Layers with Batch Normalization<a class="anchor-link" href="#Two-Convolutional-Layers-with-Batch-Normalization">&#182;</a></h2><p>Taken together, the model progression illustrates how careful architectural choices can systematically close the gap between a strong baseline and near-perfect classification. Each enhancement—class weighting, additional convolutional layers, and batch normalization—addresses a specific limitation, from class imbalance to feature extraction and training stability. The story of the project shows that thoughtful design, rather than brute-force complexity, yields the most accurate, reliable, and generalizable neural network for traffic sign recognition.</p>
+<h3 id="And-the-winner-is...">And the winner is...<a class="anchor-link" href="#And-the-winner-is...">&#182;</a></h3><h2 id="Two-Convolutional-Layers-with-Batch-Normalization">Two Convolutional Layers with Batch Normalization<a class="anchor-link" href="#Two-Convolutional-Layers-with-Batch-Normalization">&#182;</a></h2><p>This model achieved <strong>99.4% validation accuracy</strong> with balanced precision/recall and minimal error.</p>
 
 </div>
 </div>
@@ -19092,7 +19097,7 @@ class="
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a id="test-set-evaluation"></a></p>
 <h1 id="Test-Set-Evaluation">Test Set Evaluation<a class="anchor-link" href="#Test-Set-Evaluation">&#182;</a></h1><p><a href="#">Back to Top</a></p>
-<p>With training complete, the ultimate test of any model is performance on unseen data. In this section, the best-performing architecture—two convolutional layers with batch normalization—is evaluated against the GTSRB test set. The results provide a final check on generalization, class balance, and robustness under real-world conditions.</p>
+<p>With training done, the real test is unseen data. The top model—two convolutional layers plus batch normalization—was evaluated on the GTSRB test set. Results confirm strong generalization, balanced class performance, and robust handling of real-world conditions.</p>
 
 </div>
 </div>
@@ -19613,10 +19618,10 @@ class="
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a id="interpretation-of-test-results"></a></p>
 <h1 id="Interpretation-of-Test-Results">Interpretation of Test Results<a class="anchor-link" href="#Interpretation-of-Test-Results">&#182;</a></h1><p><a href="#">Back to Top</a></p>
-<p>The final model achieved <strong>99.2% accuracy on the test set</strong>, with weighted precision, recall, and f1-scores all at <strong>0.99</strong>. Performance was consistent across nearly all 43 traffic sign classes, including those with limited samples. A handful of smaller categories (e.g., classes 24, 27, 29) showed slightly lower F1-scores around 0.97, but the majority reached or exceeded 0.99, with many attaining perfect scores. These results confirm that the chosen architecture balances generalization and robustness, delivering near state-of-the-art performance without unnecessary complexity.</p>
-<p>Taken together, the model progression demonstrates how targeted architectural choices—rather than simply adding more layers—can drive performance from a solid baseline to near-perfect classification. Each enhancement systematically addressed a specific limitation, from class imbalance to learning stability and feature representation.</p>
-<h2 id="In-Conclusion">In Conclusion<a class="anchor-link" href="#In-Conclusion">&#182;</a></h2><p>From the baseline model to the final two-layer convolutional network with batch normalization, the results tell a clear story: careful design choices, combined with strategic use of class weighting and normalization, steadily closed gaps in minority and visually similar classes. The final architecture proved both <strong>highly accurate</strong> and <strong>consistently reliable</strong>, underscoring that well-placed refinements—not sheer complexity—are the key to building effective deep learning models.</p>
-<p>Taken together, these findings demonstrate how careful model selection and feature engineering can balance interpretability with predictive power. The approaches outlined here not only address the immediate problem but also illustrate broadly applicable strategies for working with complex, imbalanced data. Looking ahead, scaling these methods to higher-resolution datasets and applying transfer learning across related domains will expand their real-world impact, enabling more accurate and timely insights in operational decision-making.</p>
+<p>On the GTSRB test set, the best model reached <strong>99.2% accuracy</strong>, with weighted precision/recall/F1 all at <strong>0.99</strong>. Performance was consistent across nearly all classes, with only a few small categories (e.g., 24, 27, 29) dipping slightly (~0.97 F1). Most classes achieved or exceeded 0.99, many at perfection. Misclassifications were rare and mostly involved visually similar speed limit signs.</p>
+<p>The final model generalized well, confirming that <strong>targeted refinements—extra convolution and batch normalization—drove gains</strong>, while unnecessary dense layers hurt stability. Results demonstrate that <strong>parsimony outperforms complexity</strong> when handling imbalanced, visually similar classes.</p>
+<h2 id="In-Conclusion">In Conclusion<a class="anchor-link" href="#In-Conclusion">&#182;</a></h2><p>From baseline to final, the experiments show that <strong>controlled complexity</strong>—not sheer size—produces the most effective models. Strategic use of class weighting and normalization closed gaps in minority and confusing classes, yielding a reliable model with near state-of-the-art accuracy.</p>
+<p>Future directions could explore higher-resolution inputs, transfer learning, or cross-domain adaptation to further strengthen performance in applied settings.</p>
 
 </div>
 </div>
