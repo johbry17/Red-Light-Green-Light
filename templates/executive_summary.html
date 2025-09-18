@@ -86,7 +86,7 @@
             <span class="green-light">Green Light</span>
           </span>
           <span class="project-banner-sub"
-            >Decoding Traffic Signs with Computer Vision</span
+            >Teaching AI to Read Traffic Signs</span
           >
         </div>
 
@@ -117,7 +117,7 @@
             href="https://benchmark.ini.rub.de/gtsrb_dataset.html"
             target="_blank"
             >German Traffic Sign Recognition Benchmark (GTSRB)</a
-          >. With a handful of compact CNNs, I pushed a simple model past
+          >. With a handful of compact CNNs, I pushed a simple model to over
           <strong>99% accuracy</strong> on held-out data.
         </p>
 
@@ -186,10 +186,6 @@
           blockage, or even graffiti. It’s like asking a human to tell identical
           twins apart in a rainstorm.
         </p>
-        <p>
-          A model that succeeds here must be as resilient as the human eye — or
-          better.
-        </p>
         <img
           src="../static/images/GTSRB_representatives.png"
           alt="Real examples from the GTSRB dataset"
@@ -209,8 +205,9 @@
         <h3>CNNs in Plain English</h3>
         <p>
           Convolutional Neural Networks (CNNs) were designed for images. Early
-          versions in the 1980s struggled to read handwriting on mail, but by
-          2012, CNNs crushed the ImageNet competition and kicked off the deep
+          versions struggled to read handwritten digits on mail, but by 2012,
+          CNNs crushed the ImageNet competition—jumping from zip codes to
+          recognizing thousands of everyday objects—and kicked off the deep
           learning boom.
         </p>
         <p>
@@ -297,22 +294,21 @@
             ones — accuracy dipped overall. A trade-off.
           </li>
           <li>
-            <strong>Two Convolutional Layers:</strong> Adding a second 64-filter
-            convolutional layer was like bringing in a second team of 64 even
-            sharper spotlights—and handing out reading glasses to everyone—so
-            the model could pick up finer details and patterns, boosting
-            accuracy to 98.3% and halving the errors.
+            <strong>Two Convolutional Layers:</strong> Like adding a second team
+            of 64 sharper spotlights—and handing out reading glasses—so the
+            model catches finer details and patterns, boosting accuracy to 98.3%
+            and halving the errors.
           </li>
           <li>
             <strong>Batch Normalization:</strong> BatchNorm re-scales inputs so
             the network doesn’t over-rely on bright, common images and forget
             about blurry or rare ones. Think of it as a photographer
             auto-adjusting exposure after every shot. This stabilized training
-            and output results that were similar to the two-layer model.
+            and produced results similar to the two-layer model.
           </li>
           <li>
             <strong>Winning Combo: Two Conv Layers + BatchNorm:</strong>
-            Combining the two approaches delivered the best of both worlds and a
+            The best of both worlds. Combining the two approaches delivered a
             winning model: <b>99.4% accuracy</b>, cutting errors from 183
             (baseline) to just <b>31</b>.
           </li>
@@ -423,7 +419,7 @@
             </tr>
           </tbody>
         </table>
-        <p>
+        <p class="caption">
           <em
             ><strong>Accuracy</strong>: Percent of correct predictions.<br />
             <strong>Errors</strong>: Wrong guesses out of 5,328 validation
@@ -477,15 +473,15 @@
         </ul>
         <p>
           While this wasn’t about building a self-driving car, it shows how far
-          compact neural networks can go in learning to read the road.
+          compact neural networks can go in learning to read the road. They’re
+          already making streets safer, cities smarter, and technology better
+          for everyone.
         </p>
         <p>
           CNNs are like expert stamp collectors—great at spotting subtle
           differences among many similar, well-defined items. That skill goes
           far beyond traffic safety, shaping the future of retail, healthcare,
-          and more. Compact neural nets may never drive cars on their own, but
-          they’re already making streets safer, cities smarter, and technology
-          better for everyone.
+          and more.
         </p>
         <hr />
         <p id="footnote-1" class="footnote">

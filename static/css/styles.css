@@ -69,6 +69,14 @@ ul {
   width: 100%;
 }
 
+.footnote {
+  font-size: 0.85em;
+  color: #666;
+  line-height: 1.4;
+  margin-top: 1em;
+  margin-bottom: 0;
+}
+
 .spacer {
   height: 32px;
   width: 100%;
