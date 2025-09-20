@@ -45,7 +45,7 @@ The workflow includes:
 To explore the project:  
 1. Clone the repository.  
 2. Open and run the notebook `./notebooks/model_analysis.ipynb` for model building and evaluation  
-3. To generate or customize the figures for the executive summary, run `./notebooks/executive_summary_visuals.ipynb`
+3. To generate the figures for the executive summary, run `./notebooks/executive_summary_visuals.ipynb`
 4. See final results and conclusions published to the web [here](https://johbry17.github.io/Red-Light-Green-Light/).  
  
 > **Note:** The exported HTML report from `model_analysis.ipynb` (or `model_analysis.html`) uses a post-processing script (`inject_meta.py`) to inject metadata (title, description, author, favicon) into the `<head>`. This is necessary because nbconvert templates do not reliably support custom metadata injection.  
