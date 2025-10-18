@@ -48,7 +48,17 @@ To explore the project:
 3. To generate the figures for the executive summary, run `./notebooks/executive_summary_visuals.ipynb`
 4. See final results and conclusions published to the web [here](https://johbry17.github.io/Red-Light-Green-Light/).  
  
-> **Note:** The exported HTML report from `model_analysis.ipynb` (or `model_analysis.html`) uses a post-processing script (`inject_meta.py`) to inject metadata (title, description, author, favicon) into the `<head>`. This is necessary because nbconvert templates do not reliably support custom metadata injection.  
+To update:
+
+1. Regenerate the HTML from the notebook (run from the `notebooks/` folder):
+
+```jupyter nbconvert model_analysis.ipynb --to html --no-input --output ../templates/model_analysis.html```
+
+2. Inject HTML metadata (favicon, title, description, author):
+
+```python inject_meta.py```
+
+The post-processing step ensures the exported HTML contains the correct title, description, author, and favicon in the page `<head>`.
 
 ## Gallery  
 
@@ -97,5 +107,5 @@ MIT License © 2025 Bryan Johns. See [LICENSE](LICENSE) for details.
 
 ## Author  
 Bryan Johns, September 2025  
-[bryan.johns.official@gmail.com](mailto:bryan.johns.official@gmail.com) | [LinkedIn](https://www.linkedin.com/in/b-johns/) | [GitHub](https://github.com/johbry17) | [Portfolio](https://johbry17.github.io/portfolio/index.html)
+[bryan.johns@informedwanderer.com](mailto:bryan.johns@informedwanderer.com) | [LinkedIn](https://www.linkedin.com/in/b-johns/) | [GitHub](https://github.com/johbry17) | [Portfolio](https://informedwanderer.com)
  
