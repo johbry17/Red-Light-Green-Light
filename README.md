@@ -48,7 +48,7 @@ To explore the project:
 3. To generate the figures for the executive summary, run `./notebooks/executive_summary_visuals.ipynb`
 4. See final results and conclusions published to the web [here](https://johbry17.github.io/Red-Light-Green-Light/).  
  
-To update:
+To export notebook and update the web version:
 
 1. Regenerate the HTML from the notebook (run from the `notebooks/` folder):
 
