@@ -107,5 +107,6 @@ MIT License © 2025 Bryan Johns. See [LICENSE](LICENSE) for details.
 
 ## Author  
 Bryan Johns, September 2025  
-[bryan.johns@informedwanderer.com](mailto:bryan.johns@informedwanderer.com) | [LinkedIn](https://www.linkedin.com/in/b-johns/) | [GitHub](https://github.com/johbry17) | [Portfolio](https://informedwanderer.com)
+[bryan.johns@informedwanderer.com](mailto:bryan.johns@informedwanderer.com) | [LinkedIn](https://www.linkedin.com/in/b-johns/) | [GitHub](https://github.com/johbry17) | [Portfolio](https://informedwanderer.com)  
+— Data fluent, human literate.
  
